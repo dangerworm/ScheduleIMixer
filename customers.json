@@ -1,0 +1,499 @@
+{
+  "source": {
+    "url": "https://schedule-1.fandom.com/wiki/Category:Customers",
+    "section": "Customers",
+    "retrieved": "2026-11-08"
+  },
+  "customers": [
+    {
+      "name": "Alison Knight",
+      "region": "Suburbia",
+      "building": "Hyland Tower 2",
+      "standards": "High",
+      "favouriteEffects": ["Electrifying", "Toxic", "Euphoric"]
+    },
+    {
+      "name": "Andy",
+      "region": "Serena Flats",
+      "building": "Gas-Mart",
+      "standards": "Moderate",
+      "favouriteEffects": ["Sedating", "Munchies", "Smelly"]
+    },
+    {
+      "name": "Anna Chesterfield",
+      "region": "Docks",
+      "building": "Barbershop",
+      "standards": "Moderate",
+      "favouriteEffects": ["Refreshing", "Thought-Provoking", "Euphoric"]
+    },
+    {
+      "name": "Austin Steiner",
+      "region": "Northtown",
+      "building": "Arcade",
+      "standards": "Low",
+      "favouriteEffects": ["Calorie-Dense", "Euphoric", "Munchies"]
+    },
+    {
+      "name": "Beth Penn",
+      "region": "Northtown",
+      "building": "Motel",
+      "standards": "Low",
+      "favouriteEffects": ["Schizophrenic", "Lethal", "Seizure-Inducing"]
+    },
+    {
+      "name": "Billy Kramer",
+      "region": "Docks",
+      "building": "Koyama Chemical Company, Gray Dock's Apartments",
+      "standards": "Moderate",
+      "favouriteEffects": ["Spicy", "Schizophrenic", "Long Faced"]
+    },
+    {
+      "name": "Bruce Norton",
+      "region": "Downtown",
+      "building": "Hyland Tower 2",
+      "standards": "Moderate",
+      "favouriteEffects": ["Energizing", "Paranoia", "Spicy"]
+    },
+    {
+      "name": "Carl Bundy",
+      "region": "Suburbia",
+      "building": "The Crimson Canary",
+      "standards": "High",
+      "favouriteEffects": ["Glowing", "Athletic", "Disorienting"]
+    },
+    {
+      "name": "Charles Rowland",
+      "region": "Westville",
+      "building": null,
+      "standards": "Low",
+      "favouriteEffects": ["Sedating", "Disorienting", "Foggy"]
+    },
+    {
+      "name": "Chelsey",
+      "region": "Serena Flats",
+      "building": "Doctor's Office",
+      "standards": "Moderate",
+      "favouriteEffects": ["Calming", "Focused"]
+    },
+    {
+      "name": "Chloe Bowers",
+      "region": "Northtown",
+      "building": "Western Gas-Mart",
+      "standards": "Low",
+      "favouriteEffects": ["Euphoric", "Shrinking", "Munchies"]
+    },
+    {
+      "name": "Chris Sullivan",
+      "region": "Suburbia",
+      "building": "Hyland Bank",
+      "standards": "High",
+      "favouriteEffects": ["Sneaky", "Euphoric", "Electrifying"]
+    },
+    {
+      "name": "Cranky Frank",
+      "region": "Docks",
+      "building": null,
+      "standards": "Moderate",
+      "favouriteEffects": ["Laxative", "Toxic", "Tropic Thunder"]
+    },
+    {
+      "name": "Dean Webster",
+      "region": "Westville",
+      "building": "Top Tattoo / Dean's House",
+      "standards": "Low",
+      "favouriteEffects": ["Glowing", "Laxative", "Spicy"]
+    },
+    {
+      "name": "Dennis Kennedy",
+      "region": "Suburbia",
+      "building": "Fire Station",
+      "standards": "High",
+      "favouriteEffects": ["Athletic", "Focused", "Bright-Eyed"]
+    },
+    {
+      "name": "Donna Martin",
+      "region": "Northtown",
+      "building": null,
+      "standards": "Low",
+      "favouriteEffects": ["Refreshing", "Lethal", "Munchies"]
+    },
+    {
+      "name": "Doris Lubbin",
+      "region": "Westville",
+      "building": null,
+      "standards": "Low",
+      "favouriteEffects": ["Spicy", "Tropic Thunder", "Balding"]
+    },
+    {
+      "name": "Doug",
+      "region": "Serena Flats",
+      "building": null,
+      "standards": "Moderate",
+      "favouriteEffects": ["Calorie-Dense", "Energizing", "Sneaky"]
+    },
+    {
+      "name": "Elizabeth Homley",
+      "region": "Downtown",
+      "building": null,
+      "standards": "Moderate",
+      "favouriteEffects": ["Sedating", "Tropic Thunder", "Toxic"]
+    },
+    {
+      "name": "Eugene Buckley",
+      "region": "Downtown",
+      "building": null,
+      "standards": "Moderate",
+      "favouriteEffects": ["Schizophrenic", "Toxic", "Calming"]
+    },
+    {
+      "name": "Fiona Hancock",
+      "region": "Uptown",
+      "building": null,
+      "standards": "High",
+      "favouriteEffects": ["Lethal", "Thought-Provoking", "Tropic Thunder"]
+    },
+    {
+      "name": "Genghis Barn",
+      "region": "Docks",
+      "building": "Dock's Shipping Container",
+      "standards": "Very Low",
+      "favouriteEffects": ["Electrifying", "Gingeritis", "Athletic"]
+    },
+    {
+      "name": "George Greene",
+      "region": "Westville",
+      "building": "Bud's Bar",
+      "standards": "Low",
+      "favouriteEffects": ["Energizing", "Focused", "Thought-Provoking"]
+    },
+    {
+      "name": "Geraldine Poon",
+      "region": "Northtown",
+      "building": null,
+      "standards": "Very Low",
+      "favouriteEffects": ["Balding", "Long Faced", "Sedating"]
+    },
+    {
+      "name": "Greg Figgle",
+      "region": "Downtown",
+      "building": null,
+      "standards": "Very Low",
+      "favouriteEffects": ["Euphoric", "Tropic Thunder", "Toxic"]
+    },
+    {
+      "name": "Hank Stevenson",
+      "region": "Suburbia",
+      "building": null,
+      "standards": "High",
+      "favouriteEffects": ["Sneaky", "Toxic", "Schizophrenic"]
+    },
+    {
+      "name": "Harold Colt",
+      "region": "Suburbia",
+      "building": "Hyland Tower 2",
+      "standards": "High",
+      "favouriteEffects": ["Foggy", "Spicy", "Jennerising"]
+    },
+    {
+      "name": "Herbert Bleuball",
+      "region": "Uptown",
+      "building": null,
+      "standards": "High",
+      "favouriteEffects": ["Slippery", "Foggy", "Explosive"]
+    },
+    {
+      "name": "Irene Meadows",
+      "region": "Uptown",
+      "building": "Hyland Medical",
+      "standards": "High",
+      "favouriteEffects": ["Euphoric", "Thought-Provoking", "Sneaky"]
+    },
+    {
+      "name": "Jack Knight",
+      "region": "Suburbia",
+      "building": null,
+      "standards": "High",
+      "favouriteEffects": ["Shrinking", "Thought-Provoking", "Lethal"]
+    },
+    {
+      "name": "Jackie Stevenson",
+      "region": "Suburbia",
+      "building": "The Butter Box",
+      "standards": "High",
+      "favouriteEffects": ["Toxic", "Sedating", "Long Faced"]
+    },
+    {
+      "name": "Javier Perez",
+      "region": "Docks",
+      "building": null,
+      "standards": "Moderate",
+      "favouriteEffects": ["Cyclopean", "Sedating", "Bright-Eyed"]
+    },
+    {
+      "name": "Jeff Gilmore",
+      "region": "Downtown",
+      "building": null,
+      "standards": "Moderate",
+      "favouriteEffects": ["Sedating", "Long Faced", "Laxative"]
+    },
+    {
+      "name": "Jen Heard",
+      "region": "Uptown",
+      "building": null,
+      "standards": "High",
+      "favouriteEffects": ["Disorienting", "Energizing", "Sneaky"]
+    },
+    {
+      "name": "Jennifer Rivera",
+      "region": "Downtown",
+      "building": null,
+      "standards": "Moderate",
+      "favouriteEffects": ["Shrinking", "Slippery", "Toxic"]
+    },
+    {
+      "name": "Jeremy Wilkinson",
+      "region": "Suburbia",
+      "building": "Hyland Auto",
+      "standards": "High",
+      "favouriteEffects": ["Balding", "Slippery", "Calorie-Dense"]
+    },
+    {
+      "name": "Jerry Montero",
+      "region": "Westville",
+      "building": null,
+      "standards": "Low",
+      "favouriteEffects": ["Gingeritis", "Smelly", "Thought-Provoking"]
+    },
+    {
+      "name": "Jessi Waters",
+      "region": "Northtown",
+      "building": "Motel",
+      "standards": "Very Low",
+      "favouriteEffects": ["Energizing", "Paranoia", "Sneaky"]
+    },
+    {
+      "name": "Joe",
+      "region": "Serena Flats",
+      "building": null,
+      "standards": "Moderate",
+      "favouriteEffects": ["Laxative", "Calming", "Balding"]
+    },
+    {
+      "name": "Joyce Ball",
+      "region": "Westville",
+      "building": null,
+      "standards": "Low",
+      "favouriteEffects": ["Euphoric", "Thought-Provoking", "Calorie-Dense"]
+    },
+    {
+      "name": "Karen Kennedy",
+      "region": "Suburbia",
+      "building": null,
+      "standards": "High",
+      "favouriteEffects": []
+    },
+    {
+      "name": "Kathy Henderson",
+      "region": "Northtown",
+      "building": null,
+      "standards": "Low",
+      "favouriteEffects": ["Athletic", "Energizing", "Focused"]
+    },
+    {
+      "name": "Keith Wagner",
+      "region": "Westville",
+      "building": null,
+      "standards": "Very Low",
+      "favouriteEffects": ["Slippery", "Sneaky", "Tropic Thunder"]
+    },
+    {
+      "name": "Kelly Reynolds",
+      "region": "Docks",
+      "building": "Docks building with unknockable doors",
+      "standards": "Moderate",
+      "favouriteEffects": ["Thought-Provoking", "Zombifying", "Smelly"]
+    },
+    {
+      "name": "Kevin Oakley",
+      "region": "Downtown",
+      "building": "Supermarket",
+      "standards": "Moderate",
+      "favouriteEffects": ["Schizophrenic", "Munchies", "Calming"]
+    },
+    {
+      "name": "Kim Delaney",
+      "region": "Westville",
+      "building": null,
+      "standards": "Low",
+      "favouriteEffects": ["Shrinking", "Jennerising", "Focused"]
+    },
+    {
+      "name": "Kyle Cooley",
+      "region": "Northtown",
+      "building": "Taco Ticklers",
+      "standards": "Low",
+      "favouriteEffects": ["Calming", "Munchies", "Smelly"]
+    },
+    {
+      "name": "Lily Turner",
+      "region": "Uptown",
+      "building": "The Butter Box",
+      "standards": "High",
+      "favouriteEffects": []
+    },
+    {
+      "name": "Lisa Gardener",
+      "region": "Docks",
+      "building": null,
+      "standards": "Moderate",
+      "favouriteEffects": ["Laxative", "Schizophrenic", "Anti-Gravity"]
+    },
+    {
+      "name": "Louis Fourier",
+      "region": "Downtown",
+      "building": null,
+      "standards": "Moderate",
+      "favouriteEffects": ["Shrinking", "Seizure-Inducing", "Paranoia"]
+    },
+    {
+      "name": "Lucy Pennington",
+      "region": "Downtown",
+      "building": null,
+      "standards": "Moderate",
+      "favouriteEffects": ["Calorie-Dense", "Euphoric", "Glowing"]
+    },
+    {
+      "name": "Ludwig Meyer",
+      "region": "Northtown",
+      "building": "Sauerkraut Supreme Pizza",
+      "standards": "Low",
+      "favouriteEffects": ["Euphoric", "Refreshing", "Energizing"]
+    },
+    {
+      "name": "Mac Cooper",
+      "region": "Docks",
+      "building": "Dock's Brick Factory, Butter Box",
+      "standards": "Moderate",
+      "favouriteEffects": ["Focused", "Spicy", "Long Faced"]
+    },
+    {
+      "name": "Marco Barone",
+      "region": "Docks",
+      "building": "Body Shop",
+      "standards": "Moderate",
+      "favouriteEffects": ["Sneaky", "Long Faced", "Refreshing"]
+    },
+    {
+      "name": "Meg Cooley",
+      "region": "Westville",
+      "building": null,
+      "standards": "Low",
+      "favouriteEffects": ["Sneaky", "Slippery", "Thought-Provoking"]
+    },
+    {
+      "name": "Melissa Wood",
+      "region": "Docks",
+      "building": "Casino",
+      "standards": "Moderate",
+      "favouriteEffects": ["Anti-Gravity", "Refreshing", "Slippery"]
+    },
+    {
+      "name": "Michael Boog",
+      "region": "Uptown",
+      "building": null,
+      "standards": "High",
+      "favouriteEffects": ["Jennerising", "Calming", "Schizophrenic"]
+    },
+    {
+      "name": "Mick Lubbin",
+      "region": "Northtown",
+      "building": "Pawn Shop",
+      "standards": "Low",
+      "favouriteEffects": ["Euphoric", "Bright-Eyed", "Sneaky"]
+    },
+    {
+      "name": "Mrs. Ming",
+      "region": "Northtown",
+      "building": "Fat Dragon Chinese Restaurant",
+      "standards": "Low",
+      "favouriteEffects": ["Gingeritis", "Shrinking", "Electrifying"]
+    },
+    {
+      "name": "Pearl Moore",
+      "region": "Uptown",
+      "building": "Church",
+      "standards": "High",
+      "favouriteEffects": ["Schizophrenic", "Gingeritis", "Explosive"]
+    },
+    {
+      "name": "Peggy Myers",
+      "region": "Northtown",
+      "building": "Slop Shop",
+      "standards": "Low",
+      "favouriteEffects": ["Bright-Eyed", "Refreshing", "Energizing"]
+    },
+    {
+      "name": "Peter File",
+      "region": "Northtown",
+      "building": "Motel",
+      "standards": "Low",
+      "favouriteEffects": ["Focused", "Refreshing", "Sneaky"]
+    },
+    {
+      "name": "Philip Wentworth",
+      "region": "Downtown",
+      "building": null,
+      "standards": "Moderate",
+      "favouriteEffects": ["Refreshing", "Shrinking", "Foggy"]
+    },
+    {
+      "name": "Randy Caulfield",
+      "region": "Downtown",
+      "building": null,
+      "standards": "Moderate",
+      "favouriteEffects": []
+    },
+    {
+      "name": "Ray Hoffman",
+      "region": "Uptown",
+      "building": "Ray's Realty",
+      "standards": "High",
+      "favouriteEffects": ["Thought-Provoking", "Zombifying", "Glowing"]
+    },
+    {
+      "name": "Sam Thompson",
+      "region": "Northtown",
+      "building": null,
+      "standards": "Low",
+      "favouriteEffects": ["Munchies", "Athletic", "Smelly"]
+    },
+    {
+      "name": "Sherman Giles",
+      "region": "Docks",
+      "building": "Randy's Bait and Tackle",
+      "standards": "Moderate",
+      "favouriteEffects": ["Explosive", "Paranoia", "Bright-Eyed"]
+    },
+    {
+      "name": "Tobias Wentworth",
+      "region": "Uptown",
+      "building": null,
+      "standards": "High",
+      "favouriteEffects": ["Lethal", "Disorienting", "Spicy"]
+    },
+    {
+      "name": "Trent Sherman",
+      "region": "Westville",
+      "building": null,
+      "standards": "Low",
+      "favouriteEffects": ["Athletic", "Balding", "Calorie-Dense"]
+    },
+    {
+      "name": "Walter Cussler",
+      "region": "Uptown",
+      "building": "Church",
+      "standards": "High",
+      "favouriteEffects": ["Schizophrenic", "Calming", "Balding"]
+    }
+  ]
+}

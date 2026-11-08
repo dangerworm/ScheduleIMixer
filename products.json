@@ -1,0 +1,52 @@
+{
+  "source": {
+    "url": "https://schedule-1.fandom.com/wiki/Drugs",
+    "section": "Drugs",
+    "retrieved": "2026-11-06",
+    "basePriceNote": "Marijuana base price derived from wiki strain prices ($38-44), which include the strain's base effect"
+  },
+  "products": [
+    {
+      "name": "OG Kush",
+      "type": "Marijuana",
+      "basePrice": 35,
+      "baseEffect": "Calming"
+    },
+    {
+      "name": "Sour Diesel",
+      "type": "Marijuana",
+      "basePrice": 35,
+      "baseEffect": "Refreshing"
+    },
+    {
+      "name": "Green Crack",
+      "type": "Marijuana",
+      "basePrice": 35,
+      "baseEffect": "Energizing"
+    },
+    {
+      "name": "Granddaddy Purple",
+      "type": "Marijuana",
+      "basePrice": 35,
+      "baseEffect": "Sedating"
+    },
+    {
+      "name": "Methamphetamine",
+      "type": "Methamphetamine",
+      "basePrice": 70,
+      "baseEffect": null
+    },
+    {
+      "name": "Shrooms",
+      "type": "Shrooms",
+      "basePrice": 100,
+      "baseEffect": null
+    },
+    {
+      "name": "Cocaine",
+      "type": "Cocaine",
+      "basePrice": 150,
+      "baseEffect": null
+    }
+  ]
+}

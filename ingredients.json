@@ -1,0 +1,202 @@
+{
+  "source": {
+    "url": "https://schedule-1.fandom.com/wiki/Ingredients",
+    "retrieved": "2026-11-06"
+  },
+  "ingredients": [
+    {
+      "name": "Cuke", "price": 2, "rankRequirement": null, "baseEffect": "Energizing",
+      "transformations": [
+        { "from": "Euphoric", "to": "Laxative" },
+        { "from": "Foggy", "to": "Cyclopean" },
+        { "from": "Gingeritis", "to": "Thought-Provoking" },
+        { "from": "Munchies", "to": "Athletic" },
+        { "from": "Slippery", "to": "Munchies" },
+        { "from": "Sneaky", "to": "Paranoia" },
+        { "from": "Toxic", "to": "Euphoric" }
+      ]
+    },
+    {
+      "name": "Banana", "price": 2, "rankRequirement": null, "baseEffect": "Gingeritis",
+      "transformations": [
+        { "from": "Calming", "to": "Sneaky" },
+        { "from": "Cyclopean", "to": "Energizing" },
+        { "from": "Disorienting", "to": "Focused" },
+        { "from": "Energizing", "to": "Thought-Provoking" },
+        { "from": "Focused", "to": "Seizure-Inducing" },
+        { "from": "Long Faced", "to": "Refreshing" },
+        { "from": "Paranoia", "to": "Jennerising" },
+        { "from": "Smelly", "to": "Anti-Gravity" },
+        { "from": "Toxic", "to": "Smelly" }
+      ]
+    },
+    {
+      "name": "Paracetamol", "price": 3, "rankRequirement": null, "baseEffect": "Sneaky",
+      "transformations": [
+        { "from": "Calming", "to": "Slippery" },
+        { "from": "Electrifying", "to": "Athletic" },
+        { "from": "Energizing", "to": "Paranoia" },
+        { "from": "Focused", "to": "Gingeritis" },
+        { "from": "Foggy", "to": "Calming" },
+        { "from": "Glowing", "to": "Toxic" },
+        { "from": "Munchies", "to": "Anti-Gravity" },
+        { "from": "Paranoia", "to": "Balding" },
+        { "from": "Spicy", "to": "Bright-Eyed" },
+        { "from": "Toxic", "to": "Tropic Thunder" }
+      ]
+    },
+    {
+      "name": "Donut", "price": 3, "rankRequirement": null, "baseEffect": "Calorie-Dense",
+      "transformations": [
+        { "from": "Anti-Gravity", "to": "Slippery" },
+        { "from": "Balding", "to": "Sneaky" },
+        { "from": "Calorie-Dense", "to": "Explosive" },
+        { "from": "Focused", "to": "Euphoric" },
+        { "from": "Jennerising", "to": "Gingeritis" },
+        { "from": "Munchies", "to": "Calming" },
+        { "from": "Shrinking", "to": "Energizing" }
+      ]
+    },
+    {
+      "name": "Viagor", "price": 4, "rankRequirement": "Hoodlum II", "baseEffect": "Tropic Thunder",
+      "transformations": [
+        { "from": "Athletic", "to": "Sneaky" },
+        { "from": "Disorienting", "to": "Toxic" },
+        { "from": "Euphoric", "to": "Bright-Eyed" },
+        { "from": "Laxative", "to": "Calming" },
+        { "from": "Shrinking", "to": "Gingeritis" }
+      ]
+    },
+    {
+      "name": "Mouth Wash", "price": 4, "rankRequirement": "Hoodlum III", "baseEffect": "Balding",
+      "transformations": [
+        { "from": "Calming", "to": "Anti-Gravity" },
+        { "from": "Calorie-Dense", "to": "Sneaky" },
+        { "from": "Explosive", "to": "Sedating" },
+        { "from": "Focused", "to": "Jennerising" }
+      ]
+    },
+    {
+      "name": "Flu Medicine", "price": 5, "rankRequirement": "Hoodlum IV", "baseEffect": "Sedating",
+      "transformations": [
+        { "from": "Athletic", "to": "Munchies" },
+        { "from": "Calming", "to": "Bright-Eyed" },
+        { "from": "Cyclopean", "to": "Foggy" },
+        { "from": "Electrifying", "to": "Refreshing" },
+        { "from": "Euphoric", "to": "Toxic" },
+        { "from": "Focused", "to": "Calming" },
+        { "from": "Laxative", "to": "Euphoric" },
+        { "from": "Munchies", "to": "Slippery" },
+        { "from": "Shrinking", "to": "Paranoia" },
+        { "from": "Thought-Provoking", "to": "Gingeritis" }
+      ]
+    },
+    {
+      "name": "Gasoline", "price": 5, "rankRequirement": "Hoodlum V", "baseEffect": "Toxic",
+      "transformations": [
+        { "from": "Disorienting", "to": "Glowing" },
+        { "from": "Electrifying", "to": "Disorienting" },
+        { "from": "Energizing", "to": "Euphoric" },
+        { "from": "Euphoric", "to": "Spicy" },
+        { "from": "Gingeritis", "to": "Smelly" },
+        { "from": "Jennerising", "to": "Sneaky" },
+        { "from": "Laxative", "to": "Foggy" },
+        { "from": "Munchies", "to": "Sedating" },
+        { "from": "Paranoia", "to": "Calming" },
+        { "from": "Shrinking", "to": "Focused" },
+        { "from": "Sneaky", "to": "Tropic Thunder" }
+      ]
+    },
+    {
+      "name": "Energy Drink", "price": 6, "rankRequirement": "Peddler I", "baseEffect": "Athletic",
+      "transformations": [
+        { "from": "Disorienting", "to": "Electrifying" },
+        { "from": "Euphoric", "to": "Energizing" },
+        { "from": "Focused", "to": "Shrinking" },
+        { "from": "Foggy", "to": "Laxative" },
+        { "from": "Glowing", "to": "Disorienting" },
+        { "from": "Schizophrenic", "to": "Balding" },
+        { "from": "Sedating", "to": "Munchies" },
+        { "from": "Spicy", "to": "Euphoric" },
+        { "from": "Tropic Thunder", "to": "Sneaky" }
+      ]
+    },
+    {
+      "name": "Motor Oil", "price": 6, "rankRequirement": "Peddler II", "baseEffect": "Slippery",
+      "transformations": [
+        { "from": "Energizing", "to": "Munchies" },
+        { "from": "Euphoric", "to": "Sedating" },
+        { "from": "Foggy", "to": "Toxic" },
+        { "from": "Munchies", "to": "Schizophrenic" },
+        { "from": "Paranoia", "to": "Anti-Gravity" }
+      ]
+    },
+    {
+      "name": "Mega Bean", "price": 7, "rankRequirement": "Peddler III", "baseEffect": "Foggy",
+      "transformations": [
+        { "from": "Athletic", "to": "Laxative" },
+        { "from": "Calming", "to": "Glowing" },
+        { "from": "Energizing", "to": "Cyclopean" },
+        { "from": "Focused", "to": "Disorienting" },
+        { "from": "Jennerising", "to": "Paranoia" },
+        { "from": "Seizure-Inducing", "to": "Focused" },
+        { "from": "Shrinking", "to": "Electrifying" },
+        { "from": "Slippery", "to": "Toxic" },
+        { "from": "Sneaky", "to": "Calming" },
+        { "from": "Thought-Provoking", "to": "Energizing" }
+      ]
+    },
+    {
+      "name": "Chili", "price": 7, "rankRequirement": "Peddler IV", "baseEffect": "Spicy",
+      "transformations": [
+        { "from": "Anti-Gravity", "to": "Tropic Thunder" },
+        { "from": "Athletic", "to": "Euphoric" },
+        { "from": "Laxative", "to": "Long Faced" },
+        { "from": "Munchies", "to": "Toxic" },
+        { "from": "Shrinking", "to": "Refreshing" },
+        { "from": "Sneaky", "to": "Bright-Eyed" }
+      ]
+    },
+    {
+      "name": "Battery", "price": 8, "rankRequirement": "Peddler V", "baseEffect": "Bright-Eyed",
+      "transformations": [
+        { "from": "Cyclopean", "to": "Glowing" },
+        { "from": "Electrifying", "to": "Euphoric" },
+        { "from": "Euphoric", "to": "Zombifying" },
+        { "from": "Laxative", "to": "Calorie-Dense" },
+        { "from": "Munchies", "to": "Tropic Thunder" },
+        { "from": "Shrinking", "to": "Munchies" }
+      ]
+    },
+    {
+      "name": "Iodine", "price": 8, "rankRequirement": "Hustler I", "baseEffect": "Jennerising",
+      "transformations": [
+        { "from": "Calming", "to": "Balding" },
+        { "from": "Calorie-Dense", "to": "Gingeritis" },
+        { "from": "Euphoric", "to": "Seizure-Inducing" },
+        { "from": "Foggy", "to": "Paranoia" },
+        { "from": "Refreshing", "to": "Thought-Provoking" },
+        { "from": "Toxic", "to": "Sneaky" }
+      ]
+    },
+    {
+      "name": "Addy", "price": 9, "rankRequirement": "Hustler II", "baseEffect": "Thought-Provoking",
+      "transformations": [
+        { "from": "Explosive", "to": "Euphoric" },
+        { "from": "Foggy", "to": "Energizing" },
+        { "from": "Glowing", "to": "Refreshing" },
+        { "from": "Long Faced", "to": "Electrifying" },
+        { "from": "Sedating", "to": "Gingeritis" }
+      ]
+    },
+    {
+      "name": "Horse Semen", "price": 9, "rankRequirement": "Hustler III", "baseEffect": "Long Faced",
+      "transformations": [
+        { "from": "Anti-Gravity", "to": "Calming" },
+        { "from": "Gingeritis", "to": "Refreshing" },
+        { "from": "Seizure-Inducing", "to": "Energizing" },
+        { "from": "Thought-Provoking", "to": "Electrifying" }
+      ]
+    }
+  ]
+}

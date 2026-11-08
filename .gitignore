@@ -1,0 +1,10 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+*.user
+*.suo
+
+# Node (the web app has its own .gitignore too)
+node_modules/
+dist/
