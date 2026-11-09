@@ -11,6 +11,11 @@ It runs entirely in the browser: no server and no database. Every search is calc
   - Rank by **cheapest**, **fewest mixes** or **most profit**.
   - Limit the number of mixes and the ingredient cost.
   - "Not possible" is a definite answer: nothing within your limits gives those effects with your ingredients.
+- **Advisor**: find the recipes that suit a region's customers best.
+  - Pick a region (or all of them) and untick any customers you don't sell to. Tick a single customer for recipes just for them.
+  - Recipes are ranked by the **total number of favourite effects they match** across those customers, then by profit.
+  - Each recipe shows which customers it matches and how many of their favourites it has. With one customer selected, a link opens the Finder ready to search for all of their favourites.
+  - Shows the quality standards a drug must meet to suit at least one of the selected customers (their lowest standards) and to suit all of them (their highest). Standards don't affect the ranking: the app doesn't model product quality.
 - **Simulator**: add ingredients one at a time and see the effects, transformations, price and profit after each step. Recipes are saved in the page address, so you can bookmark or share them.
 - **My stock**: tick the products and ingredients you have access to. The Finder only uses those. Your choices are saved in your browser.
 
@@ -106,7 +111,15 @@ There are millions of possible effect combinations (about 1.7 million within 8 m
 - **Shares work:** products with the same starting effects (Meth, Shrooms and Cocaine) are searched once.
 - **Compact storage:** effect sets are stored as bitmasks, and the search state is kept in typed arrays.
 
-Searches run in a Web Worker, so the page stays responsive and you can cancel long searches. Ranking every 8-mix recipe by profit takes about 3 seconds.
+Ranking by profit or by customer favourites can't stop early, because a recipe can't be judged until it's finished. These searches check every combination within the mix limit, one starting group at a time to keep memory down. The time grows quickly with the mix limit. Approximate times with every product selected:
+
+| Max mixes | Combinations | Time |
+| --- | --- | --- |
+| 6 | 0.9 million | ~1.5 seconds |
+| 7 | 4.1 million | ~7 seconds |
+| 8 | 14 million | ~30 seconds |
+
+Searches run in a Web Worker, so the page stays responsive and you can cancel long searches.
 
 The tests check the search against a brute-force search that tries every recipe, and against the wiki's exhaustive profit tables. See `web/src/engine/search.ts` for details.
 

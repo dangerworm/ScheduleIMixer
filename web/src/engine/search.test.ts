@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import strategies from '@data/max-profit-strategies.json'
-import { ingredientByName, ingredients, productByName, products } from './data'
-import { EMPTY, fromNames, type EffectSet } from './effectSet'
+import { customers, ingredientByName, ingredients, productByName, products } from './data'
+import { favouriteWeights, matchCount, standardsRange } from './customers'
+import { EMPTY, fromNames, toEffects, type EffectSet } from './effectSet'
 import { mix, mixSteps, startingEffects } from './mix'
 import { askingPrice, recipeCost } from './price'
 import { CompiledIngredient, search, type Query, type Result } from './search'
@@ -147,6 +148,39 @@ describe('search', () => {
     const outcome = search(query({ starts: [{ product: productByName('OG Kush').index, effects }], include: fromNames(['Anti-Gravity', 'Balding', 'Glowing']), limit: 1 }))
     expectValid(outcome.results)
     expect(outcome.results[0].start).toBe(effects)
+  })
+})
+
+describe('ranking by customer favourites', () => {
+  const group = customers.filter(c => c.region === 'Docks')
+  const weights = favouriteWeights(group)
+  const total = (set: EffectSet) => group.reduce((sum, c) => sum + matchCount(c, set), 0)
+
+  it('finds the lowest and highest standards in a group', () => {
+    const group = customers.filter(c => c.standards === 'Low' || c.standards === 'High')
+    expect(standardsRange(group)).toEqual({ lowest: 'Low', highest: 'High' })
+    expect(standardsRange([group[0]])).toEqual({ lowest: group[0].standards, highest: group[0].standards })
+    expect(standardsRange([])).toBeNull()
+  })
+
+  it('weights add up to the total matches across customers', () => {
+    const set = fromNames(['Spicy', 'Toxic', 'Euphoric', 'Paranoia'])
+    expect(toEffects(set).reduce((sum, e) => sum + weights[e.index], 0)).toBe(total(set))
+  })
+
+  it('finds the best score, then profit, agreeing with brute force', () => {
+    const start = startOf('OG Kush')
+    const product = products[start.product]
+    let best = { score: -1, profit: -Infinity }
+    for (const [set, [cost]] of bruteForce(start.effects, all, 3, true)) {
+      const candidate = { score: total(set), profit: askingPrice(product, set) - cost }
+      if (candidate.score > best.score || (candidate.score === best.score && candidate.profit > best.profit)) best = candidate
+    }
+    const outcome = search(query({ starts: [start], ranking: 'score', weights, maxMixes: 3, limit: 5 }))
+    expectValid(outcome.results)
+    const top = outcome.results[0]
+    expect(total(top.effects)).toBe(best.score)
+    expect(askingPrice(product, top.effects) - top.cost).toBe(best.profit)
   })
 })
 

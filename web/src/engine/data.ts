@@ -1,3 +1,4 @@
+import customersJson from '@data/customers.json'
 import effectsJson from '@data/effects.json'
 import ingredientsJson from '@data/ingredients.json'
 import productsJson from '@data/products.json'
@@ -60,6 +61,36 @@ export const products: Product[] = productsJson.products.map((p, index) => ({
   basePrice: p.basePrice,
   baseEffect: p.baseEffect === null ? null : effectByName(p.baseEffect).index,
 }))
+
+/** Customers' quality standards, lowest first. */
+export const STANDARDS = ['Very Low', 'Low', 'Moderate', 'High', 'Very High'] as const
+export type Standards = (typeof STANDARDS)[number]
+
+export interface Customer {
+  index: number
+  name: string
+  region: string
+  building: string | null
+  standards: Standards
+  favouriteEffects: number[]
+}
+
+function standardsByName(name: string): Standards {
+  const standards = STANDARDS.find(s => s === name)
+  if (!standards) throw new Error(`Unknown standards "${name}"`)
+  return standards
+}
+
+export const customers: Customer[] = customersJson.customers.map((c, index) => ({
+  index,
+  name: c.name,
+  region: c.region,
+  building: c.building,
+  standards: standardsByName(c.standards),
+  favouriteEffects: c.favouriteEffects.map(name => effectByName(name).index),
+}))
+
+export const regions: string[] = [...new Set(customers.map(c => c.region))].sort()
 
 export function ingredientByName(name: string): Ingredient {
   const ingredient = ingredients.find(i => i.name === name)

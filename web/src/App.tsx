@@ -1,3 +1,4 @@
+import { Advisor } from './pages/Advisor'
 import { Finder } from './pages/Finder'
 import { Simulator } from './pages/Simulator'
 import { Stock } from './pages/Stock'
@@ -6,6 +7,7 @@ import { StockProvider } from './stock'
 
 const NAV: { page: Page; label: string }[] = [
   { page: 'finder', label: 'Finder' },
+  { page: 'advisor', label: 'Advisor' },
   { page: 'simulator', label: 'Simulator' },
   { page: 'stock', label: 'My stock' },
 ]
@@ -27,7 +29,8 @@ export default function App() {
       <main>
         {/* Keyed by the full hash so following a link into the Simulator loads that recipe. */}
         {route.page === 'simulator' && <Simulator key={route.params.toString()} params={route.params} />}
-        {route.page === 'finder' && <Finder />}
+        {route.page === 'finder' && <Finder key={route.params.toString()} params={route.params} />}
+        {route.page === 'advisor' && <Advisor />}
         {route.page === 'stock' && <Stock />}
       </main>
     </StockProvider>

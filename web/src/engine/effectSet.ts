@@ -47,6 +47,17 @@ export function containsNone(set: EffectSet, other: EffectSet): boolean {
   return (set % TWO_32 & other % TWO_32) === 0 && (Math.floor(set / TWO_32) & Math.floor(other / TWO_32)) === 0
 }
 
+/** Calls `visit` with the index of each effect in the set; quicker than checking every effect. */
+export function forEachEffect(set: EffectSet, visit: (effect: number) => void) {
+  for (let word = 0, bits = set % TWO_32 | 0; word < 2; word++, bits = Math.floor(set / TWO_32) | 0) {
+    while (bits !== 0) {
+      const lowest = bits & -bits
+      visit(word * 32 + 31 - Math.clz32(lowest))
+      bits ^= lowest
+    }
+  }
+}
+
 export function toEffects(set: EffectSet): Effect[] {
   return effects.filter(e => has(set, e.index))
 }

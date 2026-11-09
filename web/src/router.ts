@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
 /** Hash routes like "#/simulator?product=OG%20Kush", so the app works as static files anywhere. */
-export type Page = 'simulator' | 'finder' | 'stock'
-const PAGES: Page[] = ['simulator', 'finder', 'stock']
+export type Page = 'finder' | 'advisor' | 'simulator' | 'stock'
+const PAGES: Page[] = ['finder', 'advisor', 'simulator', 'stock']
 
 export interface Route {
   page: Page

@@ -1,10 +1,10 @@
 import { effects, type Ingredient, type Product } from './data'
-import { has, type EffectSet } from './effectSet'
+import { forEachEffect, type EffectSet } from './effectSet'
 
 /** Total of the effects' bonuses, in hundredths. */
 function bonusHundredths(set: EffectSet): number {
   let total = 0
-  for (const e of effects) if (has(set, e.index)) total += e.bonusHundredths
+  forEachEffect(set, e => (total += effects[e].bonusHundredths))
   return total
 }
 

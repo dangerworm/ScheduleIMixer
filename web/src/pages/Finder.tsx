@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { EffectChip } from '../components/EffectChip'
 import { EffectSetPicker, WantedEffectsPicker, type Want } from '../components/EffectPicker'
+import { ResultCard } from '../components/ResultCard'
+import { SearchStatus } from '../components/SearchStatus'
 import { effects, ingredients, products } from '../engine/data'
-import { EMPTY, fromIndices, has, toEffects } from '../engine/effectSet'
+import { EMPTY, fromIndices } from '../engine/effectSet'
 import { MAX_EFFECTS, startingEffects } from '../engine/mix'
-import { askingPrice } from '../engine/price'
-import type { Query, Ranking, Result } from '../engine/search'
+import type { Query, Ranking } from '../engine/search'
 import { useSearch } from '../engine/useSearch'
 import { routeHref } from '../router'
 import { useStock } from '../stock'
@@ -17,9 +17,14 @@ const RANKINGS: { value: Ranking; label: string }[] = [
 ]
 
 const RESULT_LIMIT = 25
-const number = new Intl.NumberFormat()
 
-export function Finder() {
+/** Reads "?include=Spicy,Toxic", so other pages can link to a ready-made search. */
+function wantedFromParams(params: URLSearchParams): Map<number, Want> {
+  const names = (params.get('include') ?? '').split(',')
+  return new Map(effects.filter(e => e.obtainable && names.includes(e.name)).map(e => [e.index, 'include'] as const))
+}
+
+export function Finder({ params }: { params: URLSearchParams }) {
   const stock = useStock()
   const search = useSearch()
 
@@ -27,7 +32,7 @@ export function Finder() {
   const [startProducts, setStartProducts] = useState<Set<number>>(() => new Set(stock.products))
   const [mixedProduct, setMixedProduct] = useState(0)
   const [mixedEffects, setMixedEffects] = useState<Set<number>>(new Set())
-  const [wanted, setWanted] = useState<Map<number, Want>>(new Map())
+  const [wanted, setWanted] = useState(() => wantedFromParams(params))
   const [exact, setExact] = useState(false)
   const [ranking, setRanking] = useState<Ranking>('cost')
   const [maxMixes, setMaxMixes] = useState(8)
@@ -159,86 +164,9 @@ export function Finder() {
       <section className="finder__results">
         <SearchStatus state={search.state} />
         {search.state.status === 'done' &&
-          search.state.outcome.results.map((r, i) => <ResultCard key={i} result={r} include={search.state.status === 'done' ? search.state.query.include : EMPTY} />)}
+          search.state.outcome.results.map((r, i) => <ResultCard key={i} result={r} highlight={search.state.status === 'done' ? search.state.query.include : EMPTY} />)}
       </section>
     </div>
   )
 }
 
-function SearchStatus({ state }: { state: ReturnType<typeof useSearch>['state'] }) {
-  if (state.status === 'idle') return <p className="hint">Results will appear here.</p>
-  if (state.status === 'error') return <p className="error">Search failed: {state.message}</p>
-  if (state.status === 'running') {
-    return <p className="hint">Searching… checked {number.format(state.statesExpanded)} combinations.</p>
-  }
-  const { outcome, query, seconds } = state
-  const checked = `Checked ${number.format(outcome.statesExpanded)} combinations in ${seconds.toFixed(1)}s.`
-  const limits = `within ${query.maxMixes} mixes${query.maxCost !== undefined ? ` and $${query.maxCost}` : ''} using your ingredients`
-  if (outcome.stoppedBy === 'budget') return <p className="warning">Stopped early after too many combinations; there may be better results. {checked}</p>
-  if (outcome.results.length === 0) return <p className="warning">Not possible {limits}. {checked}</p>
-  if (outcome.stoppedBy === 'exhausted' && query.ranking !== 'profit') {
-    return <p className="hint">These are all the matches {limits}. {checked}</p>
-  }
-  return <p className="hint">{checked}</p>
-}
-
-function ResultCard({ result, include }: { result: Result; include: number }) {
-  const started = result.products.every(p => startingEffects(products[p]) === result.start)
-  return (
-    <article className="panel result">
-      <header className="result__header">
-        <span className="result__products">{result.products.map(p => products[p].name).join(' / ')}</span>
-        <span className="muted">
-          {result.mixes} {result.mixes === 1 ? 'mix' : 'mixes'} · ${result.cost}
-        </span>
-      </header>
-      {!started && (
-        <div className="result__row">
-          <span className="result__label">From</span>
-          <div className="chips">
-            {toEffects(result.start).map(e => (
-              <EffectChip key={e.index} effect={e} />
-            ))}
-          </div>
-        </div>
-      )}
-      <div className="result__row">
-        <span className="result__label">Add</span>
-        <ol className="recipe">
-          {result.recipe.map((i, step) => (
-            <li key={step}>{ingredients[i].name}</li>
-          ))}
-          {result.recipe.length === 0 && <li>Nothing — it already matches</li>}
-        </ol>
-      </div>
-      <div className="result__row">
-        <span className="result__label">Gives</span>
-        <div className="chips">
-          {toEffects(result.effects).map(e => (
-            <EffectChip key={e.index} effect={effects[e.index]} variant={has(include, e.index) ? 'wanted' : 'normal'} />
-          ))}
-        </div>
-      </div>
-      <div className="result__prices">
-        {result.products.map(p => {
-          const price = askingPrice(products[p], result.effects)
-          return (
-            <span key={p}>
-              {result.products.length > 1 && `${products[p].name}: `}sells for <strong>${price}</strong>, profit <strong>${price - result.cost}</strong>
-            </span>
-          )
-        })}
-        {started && (
-          <a
-            href={routeHref('simulator', {
-              product: products[result.products[0]].name,
-              recipe: result.recipe.map(i => ingredients[i].name).join(','),
-            })}
-          >
-            Open in Simulator
-          </a>
-        )}
-      </div>
-    </article>
-  )
-}

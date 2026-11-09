@@ -12,13 +12,15 @@ src/
 │   ├── mix.ts            One mixing step (mix) and an explained version for the UI (describeMix)
 │   ├── price.ts          Asking price, multiplier and recipe cost
 │   ├── search.ts         The search engine: Query in, ranked Results out
+│   ├── customers.ts      Favourite-effect weights and match counts for the Advisor
 │   ├── worker.ts         Runs search() in a Web Worker
 │   ├── useSearch.ts      React hook that drives the worker (progress, cancel)
 │   └── *.test.ts         Vitest tests
-├── pages/                Finder, Simulator and My stock
-├── components/           Effect chips and effect pickers
+├── pages/                Finder, Advisor, Simulator and My stock
+├── components/           Effect chips and pickers, result cards, search status
 ├── stock.tsx             Available products/ingredients, saved in localStorage
 ├── router.ts             Hash routes such as #/simulator?product=OG%20Kush&recipe=Cuke
+│                         and #/finder?include=Spicy,Toxic
 └── App.tsx               Header, navigation and page switching
 ```
 

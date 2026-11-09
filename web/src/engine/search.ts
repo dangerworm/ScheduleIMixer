@@ -1,5 +1,5 @@
 import { ingredients as allIngredients, products } from './data'
-import type { EffectSet } from './effectSet'
+import { forEachEffect, type EffectSet } from './effectSet'
 import { MAX_EFFECTS } from './mix'
 import { askingPrice } from './price'
 
@@ -19,7 +19,8 @@ export interface Start {
   effects: EffectSet
 }
 
-export type Ranking = 'cost' | 'mixes' | 'profit'
+/** 'score': highest total of `weights` for the result's effects, then most profit. */
+export type Ranking = 'cost' | 'mixes' | 'profit' | 'score'
 
 export interface Query {
   starts: Start[]
@@ -30,6 +31,8 @@ export interface Query {
   /** Require exactly the `include` effects rather than at least them. */
   exact: boolean
   ranking: Ranking
+  /** Points for each effect index, for the 'score' ranking. */
+  weights?: number[]
   maxMixes: number
   maxCost?: number
   /** How many results to return. */
@@ -228,11 +231,30 @@ class BucketQueue {
   }
 }
 
+/** How an exhaustive search orders results: score, then profit, then cost, then mixes. */
+interface Ranked {
+  score: number
+  profit: number
+  cost: number
+  mixes: number
+}
+
+function rank(query: Query, product: number, effects: EffectSet, cost: number, mixes: number): Ranked {
+  let score = 0
+  const weights = query.ranking === 'score' ? query.weights : undefined
+  if (weights) forEachEffect(effects, e => (score += weights[e] ?? 0))
+  return { score, profit: askingPrice(products[product], effects) - cost, cost, mixes }
+}
+
+const compareRanked = (a: Ranked, b: Ranked) => b.score - a.score || b.profit - a.profit || a.cost - b.cost || a.mixes - b.mixes
+
 export function search(query: Query, onProgress?: (statesExpanded: number) => void): Outcome {
   const ingredients = query.ingredients.map(i => new CompiledIngredient(i))
   const maxCost = query.maxCost ?? Infinity
   const maxStates = query.maxStates ?? DEFAULT_MAX_STATES
   const byCost = query.ranking !== 'mixes'
+  // Profit and score can't be judged until a recipe is complete, so every possibility is checked.
+  const exhaustive = query.ranking === 'profit' || query.ranking === 'score'
   const priority = (cost: number, mixes: number) => (byCost ? cost * 64 + mixes : mixes * 4096 + cost)
 
   // Products with the same starting effects explore identically, so they share a group.
@@ -241,6 +263,28 @@ export function search(query: Query, onProgress?: (statesExpanded: number) => vo
     const group = groups.find(g => g.effects === start.effects)
     if (group) group.products.push(start.product)
     else groups.push({ effects: start.effects, products: [start.product] })
+  }
+
+  // An exhaustive search keeps millions of states per group, so search groups one at a time to
+  // limit memory, and merge their best results.
+  if (exhaustive && groups.length > 1) {
+    let statesExpanded = 0
+    let stoppedBy: Outcome['stoppedBy'] = 'exhausted'
+    const merged: (Ranked & { result: Result })[] = []
+    for (const group of groups) {
+      const starts = group.products.map(product => ({ product, effects: group.effects }))
+      const outcome = search({ ...query, starts, maxStates: maxStates - statesExpanded }, n => onProgress?.(statesExpanded + n))
+      statesExpanded += outcome.statesExpanded
+      for (const result of outcome.results) {
+        merged.push({ result, ...rank(query, result.products[0], result.effects, result.cost, result.mixes) })
+      }
+      if (outcome.stoppedBy === 'budget') {
+        stoppedBy = 'budget'
+        break
+      }
+    }
+    merged.sort(compareRanked)
+    return { results: merged.slice(0, query.limit).map(m => m.result), statesExpanded, stoppedBy }
   }
 
   // An exact match is one particular set, so there's at most one result per group.
@@ -297,7 +341,7 @@ export function search(query: Query, onProgress?: (statesExpanded: number) => vo
       reported[slot] = 1
       if (matches(lo, hi & 7)) {
         found.push(s)
-        if (query.ranking !== 'profit' && found.length >= limit) {
+        if (!exhaustive && found.length >= limit) {
           stoppedBy = 'limit'
           break
         }
@@ -340,19 +384,28 @@ export function search(query: Query, onProgress?: (statesExpanded: number) => vo
     }
   }
 
-  if (query.ranking !== 'profit') {
+  if (!exhaustive) {
     return { results: found.map(s => toResult(s, groups[states.hi[s] >> 3].products)), statesExpanded, stoppedBy }
   }
 
-  // Each set's cheapest recipe is its most profitable; rank every product separately.
-  const candidates: { s: number; product: number; profit: number }[] = []
+  // Each set's cheapest recipe is its most profitable; rank every product separately. Only the
+  // best `limit` are needed, so the list is trimmed as it grows, and anything worse than the
+  // current last place is skipped.
+  let candidates: (Ranked & { s: number; product: number })[] = []
+  let lastPlace: Ranked | null = null
   for (const s of found) {
     const effects = (states.hi[s] & 7) * TWO_32 + (states.lo[s] >>> 0)
     for (const product of groups[states.hi[s] >> 3].products) {
-      candidates.push({ s, product, profit: askingPrice(products[product], effects) - states.cost[s] })
+      const ranked = rank(query, product, effects, states.cost[s], states.mixes[s])
+      if (lastPlace && compareRanked(ranked, lastPlace) >= 0) continue
+      candidates.push({ ...ranked, s, product })
+    }
+    if (candidates.length > 4 * query.limit + 10_000) {
+      candidates = candidates.sort(compareRanked).slice(0, query.limit)
+      lastPlace = candidates[candidates.length - 1]
     }
   }
-  candidates.sort((a, b) => b.profit - a.profit || states.cost[a.s] - states.cost[b.s] || states.mixes[a.s] - states.mixes[b.s])
+  candidates.sort(compareRanked)
   return {
     results: candidates.slice(0, query.limit).map(c => toResult(c.s, [c.product])),
     statesExpanded,
